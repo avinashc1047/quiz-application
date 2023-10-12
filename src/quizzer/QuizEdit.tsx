@@ -6,28 +6,36 @@ import { QuestionEdit } from "./QuestionEdit";
 
 import "./QuizEdit.css";
 
+interface quizEditProps {
+    quiz: Quiz,
+    editQuiz: (quizId: number, quiz: Quiz) => void,
+    deleteQuiz: (quizId: number) => void,
+    switchEdit: () => void,
+    resetView: () => void
+}
+
 export const QuizEdit = ({
     quiz,
     editQuiz,
     deleteQuiz,
     switchEdit,
     resetView
-}: {) => {
+}: quizEditProps) => {
     const [newQuiz, setNewQuiz] = useState<Quiz>({ ...quiz });
 
     const editQuestion = (questionId: number, newQuestion: Question) => {
         setNewQuiz({
             ...newQuiz,
-            questionList: newQuiz.questionList.map(
-            )
+            questionList: newQuiz.questionList.map((question: Question): Question => 
+            question.id === questionId ? {...newQuestion} : question)
         });
     };
 
     const removeQuestion = (questionId: number) => {
         setNewQuiz({
             ...newQuiz,
-            questionList: newQuiz.questionList.filter(
-            )
+            questionList: newQuiz.questionList.filter((question: Question): boolean => 
+            question.id !== questionId)
         });
     };
 
@@ -41,8 +49,8 @@ export const QuizEdit = ({
             questionList: newQuiz.questionList.map(
                 (q: Question, idx: number): Question => {
                     if (idx === idx1) return newQuiz.questionList[idx2];
-                    if (idx === idx2) return newQuiz.questionList[idx1];
-                    return;
+                    else if (idx === idx2) return newQuiz.questionList[idx1];
+                    return null;
                 }
             )
         });
