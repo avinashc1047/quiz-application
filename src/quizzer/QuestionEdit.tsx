@@ -74,7 +74,7 @@ export const QuestionEdit = ({
         });
     };
 
-    const handleSwitch = () => setShowAddModal(false);
+
 
     return (
         <>
@@ -123,7 +123,7 @@ export const QuestionEdit = ({
                                 <Form.Select
                                     className="type_dropdown"
                                     value={question.type}
-                                    onChange={handleSwitch}
+                                    onChange={() => switchMulti()}
                                 >
                                     <option
                                         data-testid={
