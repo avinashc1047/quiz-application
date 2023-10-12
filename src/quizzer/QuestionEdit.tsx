@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import { Question, QuestionType } from "../interfaces/question";
 
 import "./QuestionEdit.css";
+import { Button, Form } from "react-bootstrap";
+
+interface questionEditprops {
+    index: number,
+    lastIndex: number,
+    question: Question,
+    editQuestion: (questionId: number, newQuestion: Question) => void,
+    removeQuestion: (questionId: number) => void,
+    swapQuestion: (idx1: number, idx2: number) => void,
+}
 
 export const QuestionEdit = ({
     index,
@@ -10,7 +20,7 @@ export const QuestionEdit = ({
     editQuestion,
     removeQuestion,
     swapQuestion
-}: {}) => {
+}: questionEditprops) => {
     const [a, b] = useState<number>(
         question.options.findIndex((s: string) => question.expected === s)
     );
@@ -63,6 +73,8 @@ export const QuestionEdit = ({
             expected: question.options[idx]
         });
     };
+
+    const handleSwitch = () => setShowAddModal(false);
 
     return (
         <>
