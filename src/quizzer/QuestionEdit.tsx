@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Question, QuestionType } from "../interfaces/question";
+import { Question } from "../interfaces/question";
 
 import "./QuestionEdit.css";
 import { Button, Form } from "react-bootstrap";
