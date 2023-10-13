@@ -44,15 +44,14 @@ export const QuizEdit = ({
     };
 
     const swapQuestion = (idx1: number, idx2: number) => {
+        console.log("inside swap")
+        const x1Question = {...newQuiz.questionList[idx1]};
+        const x2Question = {...newQuiz.questionList[idx2]};
+        newQuiz.questionList.splice(idx1, 1, x2Question)
+        newQuiz.questionList.splice(idx2, 1, x1Question)
         setNewQuiz({
             ...newQuiz,
-            questionList: newQuiz.questionList.map(
-                (q: Question, idx: number): Question => {
-                    if (idx === idx1) return newQuiz.questionList[idx2];
-                    else if (idx === idx2) return newQuiz.questionList[idx1];
-                    return null;
-                }
-            )
+            questionList: newQuiz.questionList
         });
     };
 
@@ -87,7 +86,7 @@ export const QuizEdit = ({
                             ) => {
                                 setNewQuiz({
                                     ...newQuiz,
-                                    published: 
+                                    published: !newQuiz.published 
                                 });
                             }}
                         ></Form.Check>
