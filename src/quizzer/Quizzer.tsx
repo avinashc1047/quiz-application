@@ -31,7 +31,8 @@ export const Quizzer = () => {
     }
 
     function addQuiz(title: string, body: string) {
-        setQuizzes([...quizzes]);
+        const newQuiz: Quiz = {id: quizzes.length, title: title, body: body, published: false, questionList: []};
+        setQuizzes([...quizzes, newQuiz]);
     }
 
     function deleteQuiz(qId: number) {
