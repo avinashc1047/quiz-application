@@ -56,7 +56,6 @@ export const QuizList = ({
                         ></QuizView>
                     );
                 }
-                else return (<div></div>)
             })}
         </div>
     );

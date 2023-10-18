@@ -123,7 +123,7 @@ export const QuestionEdit = ({
                                 <Form.Select
                                     className="type_dropdown"
                                     value={question.type}
-                                    onChange={() => switchMulti()}
+                                    onChange={switchMulti}
                                 >
                                     <option
                                         data-testid={
