@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.7% </span>
+                <span class="strong">3.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/27</span>
+                <span class='fraction'>1/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.7% </span>
+                <span class="strong">3.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/27</span>
+                <span class='fraction'>1/28</span>
             </div>
         
             
@@ -236,7 +236,11 @@
 <a name='L171'></a><a href='#L171'>171</a>
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -279,12 +283,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -451,18 +459,22 @@ export const QuizEdit = <span class="fstat-no" title="function not covered" >({<
     };
 &nbsp;
     const saveChanges = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        editQuiz(quiz.id, { ...newQuiz });</span>
+        const newTitle= <span class="cstat-no" title="statement not covered" >"spam"</span>
+        const newquiz = <span class="cstat-no" title="statement not covered" >{...newQuiz,title:newTitle}</span>
+<span class="cstat-no" title="statement not covered" >        setNewQuiz(newquiz)</span>
+<span class="cstat-no" title="statement not covered" >        editQuiz(quiz.id,newQuiz );</span>
     };
 &nbsp;
     const swapQuestion = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>dx1: number, idx2: number) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        console.log("inside swap")</span>
-        const x1Question = <span class="cstat-no" title="statement not covered" >{...newQuiz.questionList[idx1]};</span>
-        const x2Question = <span class="cstat-no" title="statement not covered" >{...newQuiz.questionList[idx2]};</span>
-<span class="cstat-no" title="statement not covered" >        newQuiz.questionList.splice(idx1, 1, x2Question)</span>
-<span class="cstat-no" title="statement not covered" >        newQuiz.questionList.splice(idx2, 1, x1Question)</span>
 <span class="cstat-no" title="statement not covered" >        setNewQuiz({</span>
             ...newQuiz,
-            questionList: newQuiz.questionList
+            questionList: newQuiz.questionList.map(
+<span class="fstat-no" title="function not covered" >                (q</span>: Question, idx: number): Question =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if (idx === idx1) <span class="cstat-no" title="statement not covered" >return newQuiz.questionList[idx2];</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (idx === idx2) <span class="cstat-no" title="statement not covered" >return newQuiz.questionList[idx1];</span></span>
+                    else <span class="cstat-no" title="statement not covered" >return q</span>
+                }
+            )
         });
     };
 &nbsp;
@@ -589,7 +601,7 @@ export const QuizEdit = <span class="fstat-no" title="function not covered" >({<
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Oct 16 2023 19:38:41 GMT-0400 (Eastern Daylight Time)
+                at Wed Oct 18 2023 19:59:01 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

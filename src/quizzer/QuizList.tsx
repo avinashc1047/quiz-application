@@ -56,6 +56,7 @@ export const QuizList = ({
                         ></QuizView>
                     );
                 }
+                return null;
             })}
         </div>
     );
