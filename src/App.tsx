@@ -10,7 +10,7 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                CISC 275 Quizzer Application
+                CISC275 Quizzer Application
                 <Button
                     onClick={() => {
                         setQuizzer(!quizzer);
