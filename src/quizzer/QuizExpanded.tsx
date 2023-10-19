@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Question } from "../interfaces/question";
 import { Quiz } from "../interfaces/quiz";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { QuestionEdit } from "./QuestionEdit";
 
 import "./QuizExpanded.css";
 import { QuizQuestion } from "./QuizQuestion";
@@ -60,7 +62,7 @@ export const QuizExpanded = ({
         editQuiz(quiz.id, {
             ...quiz,
             questionList: quiz.questionList.map((question: Question): Question => 
-            question.id === questionId ? {...question, submission: sub} : question)
+            question.id === questionId ? {...question, submission: sub} : {...question})
         });
     };
 

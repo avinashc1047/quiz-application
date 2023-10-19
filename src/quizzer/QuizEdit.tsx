@@ -90,7 +90,7 @@ export const QuizEdit = ({
                             ) => {
                                 setNewQuiz({
                                     ...newQuiz,
-                                    published: !newQuiz.published 
+                                    published: e.target.checked 
                                 });
                             }}
                         ></Form.Check>

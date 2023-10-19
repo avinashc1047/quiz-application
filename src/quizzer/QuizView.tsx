@@ -21,7 +21,7 @@ export const QuizView = ({
     const [edit, setEdit] = useState(false);
 
     const switchEdit = () => {
-        setEdit(edit);
+        setEdit(!edit);
     };
 
     return (

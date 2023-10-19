@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Question } from "../interfaces/question";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Question, QuestionType } from "../interfaces/question";
 
 import "./QuestionEdit.css";
 import { Button, Form } from "react-bootstrap";
